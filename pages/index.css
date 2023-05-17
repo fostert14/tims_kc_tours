@@ -1,3 +1,8 @@
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
 .page {
   min-width: 1100px;
   max-width: 1600px;
@@ -206,12 +211,11 @@
 }
 
 .form__label {
-  margin-bottom: 8px;
+  margin-top: 8px;
   font-family: Inter;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
-  padding: 0;
 }
 
 .form__input {
@@ -220,6 +224,12 @@
   height: 60px;
   margin: 0 auto 32px auto;
   padding: 0;
+  font-family: Inter;
+  font-size: 20px;
+  line-height: 30px;
+  border-radius: 4px;
+  color: #838383;
+  border: 1px solid #838383;
 }
 
 .form__button {
@@ -244,6 +254,10 @@
   height: 20px;
   width: 20px;
   margin: 0 20px 0 0;
+  border-radius: 2px;
+  background: #2f80ed;
+  background-image: url(../images/check.svg);
+  background-size: contain;
 }
 
 .form__fieldset_checkbox {
