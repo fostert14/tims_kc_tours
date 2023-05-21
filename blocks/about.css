@@ -15,7 +15,7 @@
   background-color: #0a2850;
   color: #fff;
   margin: 0;
-  padding: 100px 80px 500px 80px;
+  padding: 100px 80px 173px 80px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -24,7 +24,7 @@
 
 .about__title {
   max-width: 251px;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-weight: 500;
   font-size: 44px;
   line-height: 52px;
@@ -41,7 +41,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", "Times New Roman", Times, serif;
   font-size: 20px;
   line-height: 30px;
 }
