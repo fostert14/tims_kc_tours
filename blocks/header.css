@@ -12,7 +12,7 @@
 .header__title {
   margin: 202px 0 28px 80px;
   max-width: 729px;
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 60px;
@@ -29,15 +29,6 @@
   line-height: 72px;
   margin: 0;
   display: block;
-}
-
-.header__title_line_two {
-  display: block;
-  font-family: "Inter", Arial, sans-serif;
-  font-weight: 500;
-  font-size: 60px;
-  line-height: 72px;
-  margin: 0;
 }
 
 .header__description {
@@ -75,11 +66,6 @@
 }
 
 .header__paragraph {
-  margin: 0;
-  padding: 0;
-}
-
-.header__footer_address_text {
   margin: 0;
   padding: 0;
 }
