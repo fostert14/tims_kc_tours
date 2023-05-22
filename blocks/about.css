@@ -34,8 +34,6 @@
 }
 
 .about__content {
-  position: absolute;
-  right: 80px;
   max-width: 660px;
   margin: 19px 0 73px 0;
   display: flex;

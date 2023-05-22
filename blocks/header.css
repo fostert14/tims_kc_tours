@@ -9,27 +9,26 @@
   box-sizing: border-box;
 }
 
-.header__logo {
-  position: absolute;
-  left: 30px;
-  top: 30px;
-  height: 142px;
-  width: 125px;
-}
-
 .header__title {
   margin: 202px 0 28px 80px;
   max-width: 729px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 60px;
+  line-height: 72px;
+  position: relative;
+  z-index: 1;
 }
 
-.header__title_line_one {
+.header__span-accent {
   color: #2f80ed;
-  font-family: "Notot Serif", "Times New Roman", Times, serif;
-  font-style: italic;
+  font-family: "Noto Serif", "Times New Roman", Times, serif;
   font-style: italic;
   font-size: 60px;
   line-height: 72px;
   margin: 0;
+  display: block;
 }
 
 .header__title_line_two {
@@ -48,6 +47,8 @@
   font-family: "Noto Serif", "Times New Roman", Times, serif;
   font-size: 20px;
   line-height: 30px;
+  position: relative;
+  z-index: 1;
 }
 
 .header__image {
@@ -69,14 +70,11 @@
   max-width: 100%;
   font-weight: 500;
   color: #838383;
-}
-
-.header__footer-hours {
   margin: 0;
   padding: 0;
 }
 
-.header__footer-address {
+.header__paragraph {
   margin: 0;
   padding: 0;
 }

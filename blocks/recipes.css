@@ -2,6 +2,7 @@
   background-color: #0a2750;
   background-image: url(../images/background_recipes.svg);
   background-size: cover;
+  background-position: center;
   color: #ffffff;
   padding: 100px 0 215px 0;
 }
@@ -22,6 +23,7 @@
   line-height: 30px;
   margin: 0 0 80px 80px;
   max-width: 438px;
+  font-weight: 500;
 }
 
 .recipes__videos {
@@ -46,4 +48,6 @@
   margin-bottom: 24px;
   padding: 0;
   border: none;
+  width: 480px;
+  height: 273px;
 }

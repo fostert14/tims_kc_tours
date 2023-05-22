@@ -17,8 +17,11 @@
 
 .nav__link {
   color: black;
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
   text-decoration: none;
-  font-weight: bold;
   transition: 0.2s linear;
 }
 
