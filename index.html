@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,49 +18,42 @@
   <body>
     <div class="page">
       <header class="header">
-        <img
-          src="./images/logo_coffee_shop.svg"
-          alt="Practicum Coffee Shop Logo"
-          class="logo"
-        />
-        <nav class="nav">
-          <ul class="nav__links">
-            <li>
-              <a class="nav__link" href="#Recipes">Recipes</a>
-            </li>
-            <li>
-              <a class="nav__link" href="#reservation">Book a Table</a>
-            </li>
-            <li>
-              <a class="nav__link" href="#Menu">Menu</a>
-            </li>
-            <li>
-              <a class="nav__link" href="#Contacts">Contacts</a>
-            </li>
-          </ul>
-        </nav>
-        <h1 class="header__title">
-          <span class="header__span-accent">Speciality coffee</span>
-          in the Practicum Library
-        </h1>
-        <p class="header__description">
-          Welcome to our study zone! We've got the coffee to energize you and
-          the cozy vibes to help you get creative.
-        </p>
+        <!-- Sticky Nav/Logo -->
+        <div class="header__topbar">
+          <img
+            src="./images/logo-placeholder-image.png"
+            alt="Practicum Coffee Shop Logo"
+            class="logo"
+          />
+          <nav class="nav">
+            <ul class="nav__links">
+              <li><a class="nav__link" href="#Recipes">Recipes</a></li>
+              <li><a class="nav__link" href="#reservation">Book a Table</a></li>
+              <li><a class="nav__link" href="#Menu">Menu</a></li>
+              <li><a class="nav__link" href="#Contacts">Contacts</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Main Hero Content -->
+        <div class="header__content">
+          <h1 class="header__title">
+            <span class="header__span-accent">Tim Bassler</span>
+            Concierge Services
+          </h1>
+          <a class="header__button" href="#reservation">Book a Tour</a>
+        </div>
+
+        <!-- Background Image -->
         <img
           class="header__image"
           alt="Illustration of the Practicum Coffee Shop"
-          src="./images/inside_coffee_shop.png"
+          src="./images/Downtown.jpg"
         />
+
+        <!-- Footer Info Inside Header -->
         <div class="header__footer">
-          <div>
-            <p class="header__paragraph">Hours:</p>
-            <p class="header__paragraph">Monday - Friday (10:00 - 19:00)</p>
-            <p class="header__paragraph">Saturday - Sunday (11:00 - 18:00)</p>
-          </div>
-          <p class="header__paragraph">
-            200 Success Avenue, The Town of Practicum
-          </p>
+
         </div>
       </header>
       <main class="content">
@@ -303,5 +295,25 @@
         <p class="footer__copyright">© 2023 Trevor Foster</p>
       </footer>
     </div>
+   <script>
+  let lastScrollTop = 0;
+  const topbar = document.querySelector('.header__topbar');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    // If scrolling down past 500px, hide it
+    if (scrollTop > lastScrollTop && scrollTop > 150) {
+      topbar.classList.add('hide');
+    }
+
+    // If scrolling up OR at top, show it
+    if (scrollTop < lastScrollTop || scrollTop <= 0) {
+      topbar.classList.remove('hide');
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+</script>
   </body>
 </html>
