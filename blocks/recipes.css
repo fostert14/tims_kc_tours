@@ -1,8 +1,5 @@
 .recipes {
-  background-color: #0a2750;
-  background-image: url(../images/background_recipes.svg);
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(180deg, #f5f5f5 0%, #2c3e50 100%);
   color: #ffffff;
   padding: 100px 0 215px 0;
 }
@@ -15,6 +12,14 @@
   font-weight: 500;
   font-size: 44px;
   line-height: 52px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.recipes__title.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .recipes__subtitle {
@@ -24,6 +29,14 @@
   margin: 0 0 80px 80px;
   max-width: 438px;
   font-weight: 500;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.recipes__subtitle.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .recipes__videos {
@@ -31,6 +44,17 @@
   justify-content: center;
   align-items: center;
   column-gap: 40px;
+}
+
+.recipes__videos > div {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.recipes__videos > div.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .recipes__video-caption {
@@ -50,4 +74,24 @@
   border: none;
   width: 480px;
   height: 273px;
+}
+
+/* Dark theme adjustments for recipes section */
+@media (prefers-color-scheme: dark) {
+  .recipes__title,
+  .recipes__subtitle {
+    color: #ffffff;
+  }
+}
+
+/* Glow effect for recipes title on dark backgrounds */
+.recipes__title.animate {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Performance optimization */
+.recipes__videos > div,
+.recipes__title,
+.recipes__subtitle {
+  will-change: transform, opacity;
 }

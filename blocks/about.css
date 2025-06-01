@@ -31,6 +31,15 @@
   margin: 0;
   padding: 0;
   z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+}
+
+.about__title.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about__content {
@@ -47,6 +56,14 @@
 .about__paragraph {
   margin: 0;
   padding: 0;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.about__paragraph.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about__circle {
@@ -62,4 +79,9 @@
 
 .about__circle_animation_blurred {
   animation: pulsate 1.3s ease-in-out infinite;
+}
+
+.about__title,
+.about__paragraph {
+  transition: color 0.3s ease;
 }

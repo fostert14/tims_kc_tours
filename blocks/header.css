@@ -7,7 +7,7 @@
   min-height: 720px;
   max-height: 800px;
   background-color: #ffffff;
-  background-image: url(../images/background_header.svg);
+  /* background-image: url(../images/background_header.svg); */
   background-size: cover;
   background-position: center;
   position: relative;
@@ -82,7 +82,6 @@
 .header__span-accent {
   color: white;
   font-family: "Noto Serif", "Times New Roman", Times, serif;
-  font-style: italic;
   display: block;
   text-shadow:
     -2px -2px 0 #000,
@@ -101,10 +100,10 @@
   padding: 14px 28px;
   font-size: 18px;
   font-family: "Inter", sans-serif;
-  font-weight: 500;
-  color: black;
+  font-weight: 525;
+  color: white;
   background-color: #da1313;
-  border: 2px solid black;
+  border: 2px;
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;

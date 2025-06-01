@@ -1,0 +1,148 @@
+.services {
+  padding: 60px 20px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.services__title {
+  font-size: 36px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.services__title.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.services__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.service-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 280px;
+  padding: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  height: 50px;
+  
+  /* Initial state for animation */
+  opacity: 0;
+  transform: translateY(40px);
+  
+  /* Smooth transitions */
+  transition: opacity 0.6s ease, transform 0.6s ease, all 0.6s ease;
+}
+
+.service-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+}
+
+/* Background image overlay that fades in */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+/* Background images for each card */
+.service-card--airport::before {
+  background-image: url(../images/KCIA.jpg);
+}
+
+.service-card--underground::before {
+  background-image: url(../images/underground.jpg);
+}
+
+.service-card--concierge::before {
+  background-image: url(../images/concierge.png);
+}
+
+.service-card__title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.service-card__details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+/* Fade in background on hover */
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Individual card heights for proper content fit */
+.service-card--airport:hover {
+  height: 100px;
+}
+
+.service-card--underground:hover {
+  height: 300px;
+}
+
+.service-card--concierge:hover {
+  height: 400px;
+}
+
+.service-card:hover .service-card__details {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+/* Combined semi-transparent background for both title and details */
+.service-card:hover .service-card__title,
+.service-card:hover .service-card__details {
+  background: rgba(255, 255, 255, 0.75);
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px 15px;
+}
+
+.service-card:hover .service-card__title {
+  border-radius: 6px 6px 0 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.service-card:hover .service-card__details {
+  border-radius: 0 0 6px 6px;
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 15px;
+}
