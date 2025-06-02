@@ -1,10 +1,10 @@
-.recipes {
+.learnMore {
   background: linear-gradient(180deg, #f5f5f5 0%, #2c3e50 100%);
   color: #ffffff;
   padding: 100px 0 215px 0;
 }
 
-.recipes__title {
+.learnMore__title {
   max-width: 580px;
   margin: 0 0 24px 80px;
   padding: 0;
@@ -17,12 +17,12 @@
   transition: opacity 2s ease, transform 2s ease;
 }
 
-.recipes__title.animate {
+.learnMore__title.animate {
   opacity: 1;
   transform: translateY(0);
 }
 
-.recipes__subtitle {
+.learnMore__subtitle {
   font-family: "Noto Serif", "Times New Roman", Times, serif;
   font-size: 20px;
   line-height: 30px;
@@ -34,30 +34,30 @@
   transition: opacity 2s ease, transform 2s ease;
 }
 
-.recipes__subtitle.animate {
+.learnMore__subtitle.animate {
   opacity: 1;
   transform: translateY(0);
 }
 
-.recipes__videos {
+.learnMore__videos {
   display: flex;
   justify-content: center;
   align-items: center;
   column-gap: 40px;
 }
 
-.recipes__videos > div {
+.learnMore__videos > div {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 2s ease, transform 2s ease;
 }
 
-.recipes__videos > div.animate {
+.learnMore__videos > div.animate {
   opacity: 1;
   transform: translateY(0);
 }
 
-.recipes__video-caption {
+.learnMore__video-caption {
   display: flex;
   justify-content: space-between;
   margin: 0;
@@ -68,7 +68,7 @@
   line-height: 30px;
 }
 
-.recipes__iframe {
+.learnMore__iframe {
   margin-bottom: 24px;
   padding: 0;
   border: none;
@@ -76,22 +76,22 @@
   height: 273px;
 }
 
-/* Dark theme adjustments for recipes section */
+/* Dark theme adjustments for learnMore section */
 @media (prefers-color-scheme: dark) {
-  .recipes__title,
-  .recipes__subtitle {
+  .learnMore__title,
+  .learnMore__subtitle {
     color: #ffffff;
   }
 }
 
-/* Glow effect for recipes title on dark backgrounds */
-.recipes__title.animate {
+/* Glow effect for learnMore title on dark backgrounds */
+.learnMore__title.animate {
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 /* Performance optimization */
-.recipes__videos > div,
-.recipes__title,
-.recipes__subtitle {
+.learnMore__videos > div,
+.learnMore__title,
+.learnMore__subtitle {
   will-change: transform, opacity;
 }

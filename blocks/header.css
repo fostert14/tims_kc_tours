@@ -13,25 +13,33 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+  
+  /* Initial load animation setup */
+  opacity: 0;
+  animation: headerFadeIn 1s ease-out 0.2s forwards;
 }
 
 /* Sticky Nav Bar */
 .header__topbar {
   display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-    width: 100%;
-    padding: 20px max(20px, 5vw);
-    box-sizing: border-box;
-    background-color: white;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 20px max(20px, 5vw);
+  box-sizing: border-box;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  
+  /* Initial load animation - use opacity instead of transform */
+  opacity: 0;
+  animation: topbarFadeIn 0.8s ease-out 0.5s forwards;
 }
+
 .header__topbar.hide {
   transform: translateY(-100%);
 }
@@ -72,47 +80,64 @@
 
 .header__title {
   margin: 0 0 28px 0;
-  font-family: Arial, sans-serif;
-  font-weight: 550;
-  font-size: 60px;
-  line-height: 72px;
-  color: black;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 68px;
+  color: #2c3e50;
+  letter-spacing: -0.02em;
+  
+  /* Initial load animation */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUpFadeIn 0.8s ease-out 1.2s forwards;
 }
 
 .header__span-accent {
-  color: white;
+  color: #da1313;
   font-family: "Noto Serif", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 600;
   display: block;
-  text-shadow:
-    -2px -2px 0 #000,
-    2px -2px 0 #000,
-    -2px 2px 0 #000,
-    2px 2px 0 #000,
-    -3px 0px 0 #000,
-    3px 0px 0 #000,
-    0px -3px 0 #000,
-    0px 3px 0 #000;
+  font-size: 64px;
+  line-height: 72px;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  
+  /* Initial load animation */
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUpFadeIn 0.8s ease-out 1.0s forwards;
 }
 
 /* CTA Button */
 .header__button {
   display: inline-block;
-  padding: 14px 28px;
+  padding: 16px 32px;
   font-size: 18px;
   font-family: "Inter", sans-serif;
-  font-weight: 525;
+  font-weight: 600;
   color: white;
   background-color: #da1313;
-  border: 2px;
+  border: 2px solid #da1313;
   border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(218, 19, 19, 0.3);
+  
+  /* Initial load animation */
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideUpFadeIn 0.8s ease-out 1.5s forwards;
 }
 
 .header__button:hover {
   background-color: white;
-  color: black;
+  color: #da1313;
+  border-color: #da1313;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(218, 19, 19, 0.4);
 }
 
 /* Background Image */
@@ -125,6 +150,11 @@
   object-fit: cover;
   z-index: 1;
   opacity: 0.6; /* optional: adjust for better readability */
+  
+  /* Initial load animation */
+  filter: blur(8px);
+  transform: scale(1.05);
+  animation: imageReveal 1.2s ease-out 0s forwards;
 }
 
 /* Footer Section Inside Header */
@@ -150,4 +180,69 @@
  max-height: 100px;
   width: auto;
   margin-right: auto;
+  
+  /* Initial load animation */
+  opacity: 0;
+  animation: fadeInScale 0.6s ease-out 0.8s forwards;
+}
+
+/* Boot-up Animations */
+@keyframes headerFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes topbarFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDownFromTop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(var(--slide-distance, 30px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes imageReveal {
+  from {
+    filter: blur(8px);
+    transform: scale(1.05);
+  }
+  to {
+    filter: blur(0px);
+    transform: scale(1);
+  }
 }
