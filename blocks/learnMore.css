@@ -1,97 +1,101 @@
+.learnMore-section {
+  padding: 0;  
+}
+
 .learnMore {
-  background: linear-gradient(180deg, #f5f5f5 0%, #2c3e50 100%);
-  color: #ffffff;
-  padding: 100px 0 215px 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  margin: 0;
+  padding: 0;
+}
+
+.learnMore.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.learnMore--underground {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.learnMore--concierge {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.learnMore--custom {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.learnMore__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem; /* Move padding here instead of on .learnMore__content */
+  align-items: center;
+  width: 100%;
 }
 
 .learnMore__title {
-  max-width: 580px;
-  margin: 0 0 24px 80px;
-  padding: 0;
-  font-family: "Inter", Arial, sans-serif;
-  font-weight: 500;
-  font-size: 44px;
-  line-height: 52px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 2s ease, transform 2s ease;
+  font-family: "Bebas Neue", cursive;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
 }
 
-.learnMore__title.animate {
-  opacity: 1;
-  transform: translateY(0);
+.learnMore__price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  opacity: 0.9;
 }
 
-.learnMore__subtitle {
-  font-family: "Noto Serif", "Times New Roman", Times, serif;
-  font-size: 20px;
-  line-height: 30px;
-  margin: 0 0 80px 80px;
-  max-width: 438px;
-  font-weight: 500;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 2s ease, transform 2s ease;
+.learnMore__description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #fff;
+  opacity: 0.95;
 }
 
-.learnMore__subtitle.animate {
-  opacity: 1;
-  transform: translateY(0);
+.learnMore__button {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 2px solid white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
-.learnMore__videos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 40px;
+.learnMore__button:hover {
+  background: white;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.learnMore__videos > div {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 2s ease, transform 2s ease;
+.learnMore__image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
 }
 
-.learnMore__videos > div.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.learnMore__video-caption {
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-  font-family: "Inter", Arial, sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 30px;
-}
-
-.learnMore__iframe {
-  margin-bottom: 24px;
-  padding: 0;
-  border: none;
-  width: 480px;
-  height: 273px;
-}
-
-/* Dark theme adjustments for learnMore section */
-@media (prefers-color-scheme: dark) {
-  .learnMore__title,
-  .learnMore__subtitle {
-    color: #ffffff;
-  }
-}
-
-/* Glow effect for learnMore title on dark backgrounds */
-.learnMore__title.animate {
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-/* Performance optimization */
-.learnMore__videos > div,
-.learnMore__title,
-.learnMore__subtitle {
-  will-change: transform, opacity;
+.learnMore__image:hover {
+  transform: scale(1.05);
 }

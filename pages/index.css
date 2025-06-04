@@ -2,9 +2,8 @@
 @import url(../blocks/page.css);
 @import url(../blocks/header.css);
 @import url(../blocks/learnMore.css);
-@import url(../blocks/form.css);
+@import url(../blocks/watch.css);
 @import url(../blocks/services.css);
-@import url(../blocks/card.css);
+/* @import url(../blocks/card.css); */
 @import url(../blocks/about.css);
 @import url(../blocks/footer.css);
-
