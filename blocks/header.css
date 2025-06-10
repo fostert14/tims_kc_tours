@@ -1,4 +1,4 @@
-/* Boot-up Animations */
+
 @keyframes headerFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -42,7 +42,6 @@
   }
 }
 
-/* Logo */
 .logo {
   height: 40px;
   width: auto;
@@ -50,7 +49,6 @@
   animation: fadeInScale 0.6s ease-out 0.8s forwards;
 }
 
-/* Navigation */
 .nav {
   flex-grow: 1;
   display: flex;
@@ -78,7 +76,7 @@
   color: #007bff;
 }
 
-/* Header Content */
+
 .header__content {
   position: absolute;
   top: 50%;
@@ -130,7 +128,7 @@
   background: #0056b3;
 }
 
-/* Header Image */
+
 .header__image {
   position: absolute;
   top: 0;
@@ -145,13 +143,13 @@
   animation: imageReveal 1.2s ease-out 0s forwards;
 }
 
-/* Sticky Nav Bar */
+
 .header__topbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 100000;
   background: rgba(0,0,0,0.9);
   padding: 1rem 2rem;
   display: flex;
@@ -173,7 +171,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./images/Downtown.jpg');
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/Downtown.jpg');
   background-size: cover;
   background-position: center;
   color: white;
