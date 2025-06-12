@@ -149,7 +149,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100000;
+  z-index: 100000000000;
   background: rgba(0,0,0,0.9);
   padding: 1rem 2rem;
   display: flex;
