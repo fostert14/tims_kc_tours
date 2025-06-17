@@ -51,6 +51,33 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
 
+        // Testimonials section animation
+        if (entry.target.classList.contains("testimonials")) {
+          const title = entry.target.querySelector(".testimonials__title");
+          if (title) title.classList.add("animate");
+
+          setTimeout(() => {
+            const subtitle = entry.target.querySelector(
+              ".testimonials__subtitle"
+            );
+            if (subtitle) subtitle.classList.add("animate");
+          }, 200);
+
+          setTimeout(() => {
+            const cards = entry.target.querySelectorAll(".testimonial-card");
+            cards.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add("animate");
+              }, index * 150);
+            });
+          }, 400);
+
+          setTimeout(() => {
+            const cta = entry.target.querySelector(".testimonials__cta");
+            if (cta) cta.classList.add("animate");
+          }, 400 + entry.target.querySelectorAll(".testimonial-card").length * 150 + 300);
+        }
+
         if (entry.target.classList.contains("learnMore")) {
           entry.target.classList.add("animate");
         }
@@ -106,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, observerOptions);
 
-  const elementsToObserve = [".services", ".watch", ".about"];
+  const elementsToObserve = [".services", ".testimonials", ".watch", ".about"];
 
   // Add individual learnMore sections
   const learnMoreSections = document.querySelectorAll(".learnMore");
