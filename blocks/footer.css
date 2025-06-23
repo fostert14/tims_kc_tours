@@ -1,8 +1,8 @@
 .footer {
   box-sizing: border-box;
-  background: linear-gradient(180deg, #0a2850 0%, #071931 100%);
+  background: linear-gradient(180deg, #1B262C 0%, #0F4C75 100%);
   min-height: 224px;
-  color: #fff;
+  color: #BBE1FA;
   margin: 0;
   padding: 60px 100px 60px 80px;
 }
@@ -54,7 +54,7 @@
 
 .footer__content-link {
   text-decoration: none;
-  color: #fff;
+  color: #BBE1FA;
   display: flex;
   align-items: center;
   font-family: "Inter", Arial, sans-serif;
@@ -64,7 +64,7 @@
 }
 
 .footer__content-link:hover {
-  color: #c1c1c1;
+  color: #3282B8;
 }
 
 .footer__social-icon {

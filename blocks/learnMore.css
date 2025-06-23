@@ -19,18 +19,18 @@
 }
 
 .learnMore--underground {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #0F4C75 0%, #1B262C 100%);
+  color: #ffffff;
 }
 
 .learnMore--concierge {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  color: white;
+  background: linear-gradient(135deg, #3282B8 0%, #0F4C75 100%);
+  color: #ffffff;
 }
 
 .learnMore--custom {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  color: white;
+  background: linear-gradient(135deg, #BBE1FA 0%, #3282B8 100%);
+  color: #ffffff;
 }
 
 .learnMore__container {
@@ -48,14 +48,14 @@
   font-family: "Bebas Neue", cursive;
   font-size: 3.5rem;
   margin-bottom: 1rem;
-  color: #fff;
+  color: #ffffff;
 }
 
 .learnMore__price {
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  color: #fff;
+  color: #ffffff;
   opacity: 0.9;
 }
 
@@ -63,14 +63,14 @@
   font-size: 1.2rem;
   line-height: 1.8;
   margin-bottom: 2rem;
-  color: #fff;
+  color: #ffffff;
   opacity: 0.95;
 }
 
 .learnMore__button {
-  background: rgba(255,255,255,0.2);
-  color: white;
-  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 2px solid #ffffff;
   padding: 1rem 2rem;
   border-radius: 50px;
   cursor: pointer;
@@ -81,8 +81,8 @@
 }
 
 .learnMore__button:hover {
-  background: white;
-  color: #333;
+  background: #ffffff;
+  color: #1B262C;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }

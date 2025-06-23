@@ -1,6 +1,6 @@
 .services {
   padding: 4rem 2rem;
-  background: #f8f9fa;
+  background: #BBE1FA;
 }
 
 .services__grid {
@@ -28,19 +28,19 @@
 
 
 .service-panel--concierge {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/concierge.png');
+  background: linear-gradient(rgba(27, 38, 44, 0.6), rgba(27, 38, 44, 0.6)), url('../images/concierge.png');
   background-size: cover;
   background-position: center;
 }
 
 .service-panel--underground {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/UnderGroundDoor.JPG');
+  background: linear-gradient(rgba(27, 38, 44, 0.6), rgba(27, 38, 44, 0.6)), url('../images/UnderGroundDoor.JPG');
   background-size: cover;
   background-position: center;
 }
 
 .service-panel--airport {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/KCIA.jpg');
+  background: linear-gradient(rgba(27, 38, 44, 0.6), rgba(27, 38, 44, 0.6)), url('../images/KCIA.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -52,7 +52,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #ffffff;
   text-align: center;
   padding: 2rem;
 }
@@ -61,22 +61,25 @@
   font-size: 1.8rem;
   margin-bottom: 1rem;
   font-weight: 600;
+  color: #ffffff;
 }
 
 .service-panel__pricing-list {
   list-style: none;
   margin-bottom: 1.5rem;
   padding: 0;
+  color: #ffffff;
 }
 
 .service-panel__pricing-list li {
   margin-bottom: 0.5rem;
   font-size: 1.1rem;
+  color: #ffffff;
 }
 
 .service-panel__button {
-  background: #007bff;
-  color: white;
+  background: #3282B8;
+  color: #ffffff;
   border: none;
   padding: 0.8rem 1.5rem;
   border-radius: 5px;
@@ -86,7 +89,7 @@
 }
 
 .service-panel__button:hover {
-  background: #0056b3;
+  background: #0F4C75;
 }
 
 @media (max-width: 768px) {
