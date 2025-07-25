@@ -132,19 +132,31 @@
   transform: translateY(-1px);
 }
 
-/* Expandable content container */
 .concierge__expanded-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.6s ease-out, opacity 0.4s ease;
-  opacity: 0;
-  margin-bottom: 1.5rem;
+  transition: max-height 0.8s ease-out;
 }
 
+/* 1: Container expands to fit content */
 .concierge__expanded-content.show {
   max-height: 2500px;
+  transition: max-height 0.8s ease-out;
+}
+
+/* 2: Content fades in after container expansion */
+.concierge__expanded-content > * {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition-delay: 0s;
+}
+
+.concierge__expanded-content.show > * {
   opacity: 1;
-  transition: max-height 0.8s ease-out, opacity 0.5s ease 0.1s;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition-delay: 0.6s; /* Start after container expansion */
 }
 
 /* Content sections */
