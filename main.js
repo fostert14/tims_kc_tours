@@ -31,6 +31,32 @@ function playVideo(container) {
   container.classList.add("playing");
 }
 
+// Expand Concierge Section
+
+function toggleConciergeDetails() {
+  // Store the current scroll position
+  const currentScrollY = window.scrollY;
+
+  const details = document.getElementById("concierge-details");
+  const expandText = document.getElementById("expand-text");
+  const previewText = document.querySelector(".concierge__preview-text");
+
+  if (details.classList.contains("show")) {
+    // Collapse - Show "Read More"
+    details.classList.remove("show");
+    expandText.textContent = "Read More";
+    previewText.classList.remove("hidden");
+  } else {
+    // Expand - Show "Read Less"
+    details.classList.add("show");
+    expandText.textContent = "Read Less";
+    previewText.classList.add("hidden");
+  }
+
+  // Maintain the scroll position (prevent auto-scroll)
+  window.scrollTo(0, currentScrollY);
+}
+
 // Animation system
 document.addEventListener("DOMContentLoaded", function () {
   const observerOptions = {
