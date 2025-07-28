@@ -176,11 +176,11 @@
   color: #ffffff;
   display: flex;
   align-items: center;
+  padding-left: 15px;
 }
 
 .concierge__section-title::before {
-  content: "📍";
-  margin-right: 0.5rem;
+  margin-right: 3px;
   font-size: 1.2rem;
 }
 
