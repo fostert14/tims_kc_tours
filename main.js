@@ -37,21 +37,6 @@ function toggleConciergeDetails() {
   const expandText = document.getElementById("expand-text");
   const previewText = document.querySelector(".concierge__preview-text");
 
-  // Lock scroll position during animation
-  const currentScrollY = window.pageYOffset;
-  const body = document.body;
-  const html = document.documentElement;
-
-  // Store original styles
-  const originalBodyStyle = body.style.cssText;
-  const originalHtmlStyle = html.style.cssText;
-
-  // Lock scroll position
-  body.style.position = "fixed";
-  body.style.top = `-${currentScrollY}px`;
-  body.style.width = "100%";
-  html.style.scrollBehavior = "auto";
-
   if (details.classList.contains("show")) {
     details.classList.remove("show");
     expandText.textContent = "Read More";
@@ -61,13 +46,6 @@ function toggleConciergeDetails() {
     expandText.textContent = "Read Less";
     previewText.classList.add("hidden");
   }
-
-  // Unlock scroll after animation completes (1.2s = 0.8s container + 0.4s content)
-  setTimeout(() => {
-    body.style.cssText = originalBodyStyle;
-    html.style.cssText = originalHtmlStyle;
-    window.scrollTo(0, currentScrollY);
-  }, 1200);
 }
 
 // Animation system
