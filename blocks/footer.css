@@ -5,6 +5,7 @@
   color: #BBE1FA;
   margin: 0;
   padding: 60px 100px 60px 80px;
+  z-index: 1;
 }
 
 .footer__content {

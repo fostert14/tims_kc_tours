@@ -1,6 +1,7 @@
 .services {
   padding: 4rem 2rem;
   background: #BBE1FA;
+  z-index: 1;
 }
 
 .services__grid {
