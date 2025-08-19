@@ -23,6 +23,7 @@
   padding: 0 2rem;
   position: relative;
   z-index: 2;
+  justify-content: center;
 }
 
 .testimonials__title {
@@ -57,13 +58,19 @@
   transform: translateY(0);
 }
 
+/* Updated testimonials grid using flexbox for better centering */
 .testimonials__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
   margin-bottom: 3rem;
+  max-width: 1200px; /* Optional: limit total width for better appearance */
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Ensure testimonial cards have consistent width */
 .testimonial-card {
   background: rgba(187, 225, 250, 0.15);
   backdrop-filter: blur(10px);
@@ -74,6 +81,8 @@
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+  flex: 0 1 350px; /* Flexible width with min 350px, allows shrinking */
+  max-width: 400px; /* Maximum width to prevent cards from getting too wide */
 }
 
 .testimonial-card.animate {
@@ -206,11 +215,12 @@
   }
   
   .testimonials__grid {
-    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   
   .testimonial-card {
     padding: 1.5rem;
+    flex: 1 1 100%; /* Full width on mobile */
+    max-width: none;
   }
 }
