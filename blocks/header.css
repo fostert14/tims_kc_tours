@@ -97,7 +97,7 @@
 }
 
 .header__span-accent {
-  color: #3282B8;
+  color: #27a8ff;
   display: block;
   font-size: 5rem;
   font-family: "Bebas Neue", cursive;
@@ -113,7 +113,7 @@
 
 .header__button {
   display: inline-block;
-  background: #3282B8;
+  background: #27a8ff;
   color: #ffffff;
   padding: 1rem 2rem;
   text-decoration: none;
