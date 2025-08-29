@@ -321,6 +321,49 @@
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+  .learnMore__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+  
+  .learnMore__container > div:first-child {
+    order: 1;
+  }
+  
+  .learnMore__container > div:last-child {
+    order: -1;
+  }
+  
+  .learnMore--concierge .learnMore__container > div:first-child {
+    order: -1;
+  }
+  
+  .learnMore--concierge .learnMore__container > div:last-child {
+    order: 1;
+  }
+  
+  .learnMore__title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .learnMore__price {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .learnMore__description {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .learnMore__image,
+  .learnMore__image-underground {
+    height: 300px;
+  }
+  
   .concierge__stops-grid {
     grid-template-columns: 1fr;
   }
@@ -343,5 +386,36 @@
   .concierge__expand-btn {
     font-size: 0.9rem;
     padding: 0.7rem 1.3rem;
+  }
+
+  .learnMore__content {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .learnMore__container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .learnMore__title {
+    font-size: 2rem;
+  }
+  
+  .learnMore__price {
+    font-size: 1.1rem;
+  }
+  
+  .learnMore__description {
+    font-size: 0.95rem;
+  }
+  
+  .learnMore__image,
+  .learnMore__image-underground {
+    height: 250px;
+  }
+  
+   .learnMore__content {
+    text-align: center;
   }
 }

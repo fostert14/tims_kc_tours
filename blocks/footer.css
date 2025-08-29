@@ -112,3 +112,71 @@
   font-size: 14px;
   color: #BBE1FA;
 }
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px;
+    min-height: auto;
+  }
+  
+  .footer__content {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .footer__content_social_media {
+    order: 2;
+  }
+  
+  .footer__content_contact {
+    order: 1;
+  }
+  
+  .footer__content-heading {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .footer__list-item {
+    margin-bottom: 12px;
+  }
+  
+  .footer__content-link {
+    justify-content: center;
+    font-size: 16px;
+  }
+  
+  .footer__business-info {
+    font-size: 16px;
+    margin: 6px 0;
+  }
+  
+  .footer__insurance {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 15px;
+  }
+  
+  .footer__content {
+    gap: 1.5rem;
+  }
+  
+  .footer__content-heading {
+    font-size: 16px;
+  }
+  
+  .footer__content-link {
+    font-size: 15px;
+  }
+  
+  .footer__business-info {
+    font-size: 15px;
+  }
+}
