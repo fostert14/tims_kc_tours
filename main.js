@@ -48,6 +48,18 @@ function toggleConciergeDetails() {
   }
 }
 
+function changeAboutPhoto() {
+  const imageElement = document.querySelector(".about__image");
+  const currentImage = getComputedStyle(imageElement).backgroundImage;
+  
+  // Check if current image contains TimBasler.jpeg
+  if (currentImage.includes("TimBasler.jpeg")) {
+    imageElement.style.backgroundImage = "url('../images/Horse.webp')";
+  } else {
+    imageElement.style.backgroundImage = "url('../images/TimBasler.jpeg')";
+  }
+}
+
 // Animation system
 document.addEventListener("DOMContentLoaded", function () {
   const observerOptions = {
