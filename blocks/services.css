@@ -7,8 +7,9 @@
 .services__grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: space-evenly;
+  row-gap: 2rem;
+  column-gap: 0.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
