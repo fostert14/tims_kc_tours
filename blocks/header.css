@@ -219,13 +219,18 @@
   }
   
   .header__button {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    margin-top: 1.5rem;
+    padding: 0.8rem 5.5rem;
+        font-size: 1.25rem;
+        margin-top: -2.5rem;
+        white-space: nowrap;
   }
 }
 
 @media (max-width: 480px) {
+.header__content {
+  max-width: 100%;
+}
+
   .nav__links {
     gap: 0.5rem;
     justify-content: center;
@@ -237,11 +242,17 @@
   }
   
   .header__title {
-    font-size: 1.8rem;
+    font-size: 3rem;
+    white-space: nowrap;
   }
   
   .header__span-accent {
-    font-size: 2.2rem;
+    font-size: 4rem;
     letter-spacing: 0px;
   }
+
+  .header__title p {
+      margin: 0;
+    }
+
 }
