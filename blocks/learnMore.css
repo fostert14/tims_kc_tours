@@ -420,3 +420,25 @@
     text-align: center;
   }
 }
+
+/* Image caption styles */
+.image-with-caption {
+  position: relative;
+  display: block;
+}
+
+.image-caption {
+  margin-top: 1rem;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.image-with-caption:hover .image-caption {
+  opacity: 0.95;
+  transform: translateY(0);
+}
