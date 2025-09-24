@@ -10,6 +10,7 @@
     <meta name="keywords" content="concierge, shuttle, menu" />
     <meta name="author" content="Trevor Foster" />
     <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="stylesheet" href="./bookingModal.css" />
     <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,7 +68,7 @@
             <span class="header__span-accent">Tim's KC Tours</span>
             <p>Concierge Services</p>
           </h1>
-          <a class="header__button" href="#reservation">Book a Tour</a>
+          <button class="header__button" onclick="openBookingModal()">Book a Tour</button>
         </div>
 
         <!-- Background Image -->
@@ -91,7 +92,7 @@
                     <li>Up to 5 People</li>
                     <li>6 Hours</li>
                   </ul>
-                  <button class="service-panel__button">Book Now</button>
+                  <button class="service-panel__button" onclick="openBookingModal()">Book Now</button>
                 </div>
               </div>
             </div>
@@ -105,7 +106,7 @@
                     <li>$200 for 5 People</li>
                     <li>1 Hour</li>
                   </ul>
-                  <button class="service-panel__button">Book Now</button>
+                  <button class="service-panel__button" onclick="openBookingModal()">Book Now</button>
                 </div>
               </div>
             </div>
@@ -118,7 +119,7 @@
                     <li>Starting at $75</li>
                     <li>On-demand</li>
                   </ul>
-                  <button class="service-panel__button">Book Now</button>
+                  <button class="service-panel__button" onclick="openBookingModal()">Book Now</button>
                 </div>
               </div>
             </div>
@@ -339,7 +340,7 @@
                   Highly recommend Monday through Friday during normal business
                   hours.
                 </p>
-                <button class="learnMore__button">Book Underground Tour</button>
+                <button class="learnMore__button" onclick="openBookingModal()">Book Underground Tour</button>
               </div>
               <div>
                 <img
@@ -502,7 +503,7 @@
                   <span id="expand-text">Read More</span>
                 </button>
 
-                <button class="learnMore__button">Book Concierge Tour</button>
+                <button class="learnMore__button" onclick="openBookingModal()">Book Concierge Tour</button>
               </div>
             </div>
           </div>
@@ -519,7 +520,7 @@
                   any tour you wish. From the best BBQ joints to forgotten
                   speakeasies -- if it is in KC, Tim can make it happen.
                 </p>
-                <button class="learnMore__button">Plan Custom Trip</button>
+                <button class="learnMore__button" onclick="openBookingModal()">Plan Custom Trip</button>
               </div>
               <div class="image-with-caption">
                 <img

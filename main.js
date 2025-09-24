@@ -60,6 +60,66 @@ function changeAboutPhoto() {
   }
 }
 
+// Modal functionality
+let modalHtml = null;
+
+async function loadModal() {
+  if (!modalHtml) {
+    try {
+      const response = await fetch('bookingModal.html');
+      modalHtml = await response.text();
+    } catch (error) {
+      console.error('Error loading modal:', error);
+      return;
+    }
+  }
+
+  // Remove existing modal if present
+  const existingModal = document.getElementById('bookingModal');
+  if (existingModal) {
+    existingModal.remove();
+  }
+
+  // Add modal to page
+  document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+  // Setup event listeners
+  setupModalEventListeners();
+}
+
+function setupModalEventListeners() {
+  const modal = document.getElementById('bookingModal');
+  const closeBtn = modal.querySelector('.modal__close');
+
+  // Close modal when clicking X
+  closeBtn.onclick = function() {
+    modal.style.display = 'none';
+  }
+
+  // Close modal when clicking outside of it
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && modal.style.display === 'block') {
+      modal.style.display = 'none';
+    }
+  });
+}
+
+function openBookingModal() {
+  loadModal().then(() => {
+    const modal = document.getElementById('bookingModal');
+    if (modal) {
+      modal.style.display = 'block';
+    }
+  });
+}
+
 // Animation system
 document.addEventListener("DOMContentLoaded", function () {
   const observerOptions = {

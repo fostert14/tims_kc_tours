@@ -191,6 +191,10 @@
   opacity: 0;
   transform: translateY(50px);
   animation: slideUpFadeIn 0.8s ease-out 1.5s forwards;
+  /* Button-specific reset styles */
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
 }
 
 .header__button:hover {
