@@ -2,24 +2,127 @@
 <div id="bookingModal" class="modal">
   <div class="modal__content">
     <span class="modal__close">&times;</span>
-    <h2 class="modal__title">Get in Touch</h2>
-    <p class="modal__subtitle">Ready to book your Kansas City experience?</p>
-    <div class="modal__buttons">
-      <a
-        href="mailto:tim@timskctours.com"
-        class="modal__button modal__button--email"
+
+    <!-- Full Tour Selector (default for header "Book a Tour" button) -->
+    <div id="modal-tour-select" class="modal__step">
+      <h2 class="modal__title">Book a Tour</h2>
+      <p class="modal__subtitle">Select your experience to get started</p>
+      <div class="modal__buttons">
+        <button
+          class="modal__button modal__button--underground"
+          onclick="selectTour('underground')"
+        >
+          <div class="modal__button-text">
+            <div class="modal__button-label">Underground Tour</div>
+            <div class="modal__button-detail">
+              Starting at $45/person · 1 Hour
+            </div>
+          </div>
+        </button>
+        <button
+          class="modal__button modal__button--concierge"
+          onclick="selectTour('concierge')"
+        >
+          <div class="modal__button-text">
+            <div class="modal__button-label">Concierge Tour</div>
+            <div class="modal__button-detail">
+              $300 · Up to 5 People · 6 Hours
+            </div>
+          </div>
+        </button>
+      </div>
+      <div class="modal__contact-alt">
+        <p>Prefer to book by phone or email?</p>
+        <div class="modal__contact-links">
+          <a href="tel:816-585-3567">816-585-3567</a>
+          <span>·</span>
+          <a href="mailto:tim@timskctours.com">tim@timskctours.com</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Underground Group Size Picker -->
+    <div id="modal-underground" class="modal__step modal__step--hidden">
+      <button
+        class="modal__back-btn"
+        id="underground-back-btn"
+        onclick="goBackToTourSelect()"
       >
-        <div class="modal__button-text">
-          <div class="modal__button-label">Book by Email</div>
-          <div class="modal__button-detail">tim@timskctours.com</div>
+        ← Back
+      </button>
+      <h2 class="modal__title">Underground Tour</h2>
+      <h3 class="modal__step-title">How many people?</h3>
+      <div class="modal__group-options">
+        <button class="modal__group-btn" onclick="selectGroupSize(1)">
+          <span class="modal__group-count">1</span>
+          <span class="modal__group-label">Person</span>
+          <span class="modal__group-price">$45</span>
+        </button>
+        <button class="modal__group-btn" onclick="selectGroupSize(2)">
+          <span class="modal__group-count">2</span>
+          <span class="modal__group-label">People</span>
+          <span class="modal__group-price">$90</span>
+        </button>
+        <button class="modal__group-btn" onclick="selectGroupSize(3)">
+          <span class="modal__group-count">3</span>
+          <span class="modal__group-label">People</span>
+          <span class="modal__group-price">$135</span>
+        </button>
+        <button class="modal__group-btn" onclick="selectGroupSize(4)">
+          <span class="modal__group-count">4</span>
+          <span class="modal__group-label">People</span>
+          <span class="modal__group-price">$180</span>
+        </button>
+        <button
+          class="modal__group-btn modal__group-btn--deal"
+          onclick="selectGroupSize(5)"
+        >
+          <span class="modal__group-deal-badge">Best Value</span>
+          <span class="modal__group-count">5</span>
+          <span class="modal__group-label">People</span>
+          <span class="modal__group-price">$200</span>
+          <span class="modal__group-savings">Save $25</span>
+        </button>
+      </div>
+      <div class="modal__redirect-note">
+        <div class="modal__redirect-icon">
+          <span class="modal__redirect-step">1</span>
+          <span class="modal__redirect-line"></span>
+          <span class="modal__redirect-step">2</span>
         </div>
-      </a>
-      <a href="tel:816-585-3567" class="modal__button modal__button--phone">
-        <div class="modal__button-text">
-          <div class="modal__button-label">Book by Phone</div>
-          <div class="modal__button-detail">816-585-3567</div>
+        <p>Pick your date & time, then pay to confirm</p>
+      </div>
+      <div class="modal__contact-alt">
+        <p>Prefer to book by phone or email?</p>
+        <div class="modal__contact-links">
+          <a href="tel:816-585-3567">816-585-3567</a>
+          <span>·</span>
+          <a href="mailto:tim@timskctours.com">tim@timskctours.com</a>
         </div>
-      </a>
+      </div>
+    </div>
+
+    <!-- Airport Transportation Contact -->
+    <div id="modal-airport" class="modal__step modal__step--hidden">
+      <h2 class="modal__title">Airport Transportation</h2>
+      <p class="modal__subtitle">Ready to book your ride?</p>
+      <div class="modal__buttons">
+        <a
+          href="mailto:tim@timskctours.com"
+          class="modal__button modal__button--email"
+        >
+          <div class="modal__button-text">
+            <div class="modal__button-label">Book by Email</div>
+            <div class="modal__button-detail">tim@timskctours.com</div>
+          </div>
+        </a>
+        <a href="tel:816-585-3567" class="modal__button modal__button--phone">
+          <div class="modal__button-text">
+            <div class="modal__button-label">Book by Phone</div>
+            <div class="modal__button-detail">816-585-3567</div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </div>

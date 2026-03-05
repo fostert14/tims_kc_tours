@@ -19,15 +19,12 @@ function playVideo(container) {
   const thumbnail = container.querySelector(".watch__video-thumbnail");
   const playButton = container.querySelector(".watch__play-button");
 
-  // Hide thumbnail and play button
   thumbnail.style.display = "none";
   playButton.style.display = "none";
 
-  // Show and load the iframe
   iframe.style.display = "block";
   iframe.src = iframe.getAttribute("data-src");
 
-  // Add playing class for additional styling if needed
   container.classList.add("playing");
 }
 
@@ -52,7 +49,6 @@ function changeAboutPhoto() {
   const imageElement = document.querySelector(".about__image");
   const currentImage = getComputedStyle(imageElement).backgroundImage;
 
-  // Check if current image contains TimBasler.jpeg
   if (currentImage.includes("Casual")) {
     imageElement.style.backgroundImage = "url('./images/Horse.webp')";
   } else {
@@ -60,7 +56,25 @@ function changeAboutPhoto() {
   }
 }
 
-// Modal functionality
+// ============================================
+// BOOKING MODAL & CALENDLY INTEGRATION
+// ============================================
+
+// Calendly Event URLs - one per tour type / group size
+const CALENDLY_EVENTS = {
+  underground: {
+    1: "https://calendly.com/tim-timskctours/30min",
+    2: "https://calendly.com/tim-timskctours/underground-tour-1-person-clone",
+    3: "https://calendly.com/tim-timskctours/underground-tour-2-people-clone",
+    4: "https://calendly.com/tim-timskctours/underground-tour-3-people-clone",
+    5: "https://calendly.com/tim-timskctours/underground-tour-4-people-clone",
+  },
+  concierge: "https://calendly.com/tim-timskctours/custom-tour",
+};
+
+// Track which view to open the modal with
+// "tour-select" = full selector, "underground" = group picker, "concierge" = confirm, "airport" = contact
+let modalInitialView = "tour-select";
 let modalHtml = null;
 
 async function loadModal() {
@@ -74,10 +88,35 @@ async function loadModal() {
     }
   }
 
+  // Remove existing modal if present
+  const existingModal = document.getElementById("bookingModal");
+  if (existingModal) existingModal.remove();
+
   // Add modal to page
   document.body.insertAdjacentHTML("beforeend", modalHtml);
 
-  // Setup event listeners
+  // Hide all steps first
+  const allSteps = document.querySelectorAll(".modal__step");
+  allSteps.forEach((step) => step.classList.add("modal__step--hidden"));
+
+  // Show the correct initial view
+  if (modalInitialView === "underground") {
+    document
+      .getElementById("modal-underground")
+      .classList.remove("modal__step--hidden");
+    // Hide back button when opened directly from service panel
+    document.getElementById("underground-back-btn").style.display = "none";
+  } else if (modalInitialView === "airport") {
+    document
+      .getElementById("modal-airport")
+      .classList.remove("modal__step--hidden");
+  } else {
+    // Default: show full tour selector
+    document
+      .getElementById("modal-tour-select")
+      .classList.remove("modal__step--hidden");
+  }
+
   setupModalEventListeners();
 }
 
@@ -85,32 +124,48 @@ function setupModalEventListeners() {
   const modal = document.getElementById("bookingModal");
   const closeBtn = modal.querySelector(".modal__close");
 
-  // Close modal when clicking X
   closeBtn.onclick = function () {
     closeModal();
   };
 
-  // Close modal when clicking outside of it
-  window.onclick = function (event) {
+  modal.addEventListener("click", function (event) {
     if (event.target === modal) {
       closeModal();
     }
-  };
+  });
 
-  // Close modal with Escape key
-  document.addEventListener("keydown", function (event) {
+  document.addEventListener("keydown", function handler(event) {
     if (event.key === "Escape") {
       closeModal();
+      document.removeEventListener("keydown", handler);
     }
   });
 }
 
+// Main opener - header "Book a Tour" button (shows full tour selector)
 function openBookingModal() {
+  modalInitialView = "tour-select";
   loadModal().then(() => {
     const modal = document.getElementById("bookingModal");
-    if (modal) {
-      modal.style.display = "block";
-    }
+    if (modal) modal.style.display = "block";
+  });
+}
+
+// Direct opener - Underground "Book Now" → group size picker
+function openUndergroundBooking() {
+  modalInitialView = "underground";
+  loadModal().then(() => {
+    const modal = document.getElementById("bookingModal");
+    if (modal) modal.style.display = "block";
+  });
+}
+
+// Direct opener - Airport "Book Now" → phone/email contact
+function openAirportBooking() {
+  modalInitialView = "airport";
+  loadModal().then(() => {
+    const modal = document.getElementById("bookingModal");
+    if (modal) modal.style.display = "block";
   });
 }
 
@@ -118,10 +173,57 @@ function closeModal() {
   const modal = document.getElementById("bookingModal");
   if (modal) {
     modal.remove();
+    modalHtml = null;
   }
 }
 
-// Animation system
+// Tour selection from the full selector
+function selectTour(tourType) {
+  if (tourType === "concierge") {
+    // Open Calendly directly for concierge
+    closeModal();
+    Calendly.initPopupWidget({ url: CALENDLY_EVENTS.concierge });
+  } else if (tourType === "underground") {
+    document
+      .getElementById("modal-tour-select")
+      .classList.add("modal__step--hidden");
+    document
+      .getElementById("modal-underground")
+      .classList.remove("modal__step--hidden");
+    // Show back button when navigating from tour selector
+    document.getElementById("underground-back-btn").style.display = "";
+  }
+}
+
+// Concierge: open Calendly popup for scheduling + payment
+function goToConciergePay() {
+  closeModal();
+  Calendly.initPopupWidget({ url: CALENDLY_EVENTS.concierge });
+}
+
+// Underground: group size selection → open Calendly popup
+function selectGroupSize(size) {
+  const url = CALENDLY_EVENTS.underground[size];
+  if (url) {
+    closeModal();
+    Calendly.initPopupWidget({ url: url });
+  }
+}
+
+// Back to tour selector
+function goBackToTourSelect() {
+  document
+    .getElementById("modal-underground")
+    .classList.add("modal__step--hidden");
+  document
+    .getElementById("modal-tour-select")
+    .classList.remove("modal__step--hidden");
+}
+
+// ============================================
+// ANIMATION SYSTEM
+// ============================================
+
 document.addEventListener("DOMContentLoaded", function () {
   const observerOptions = {
     threshold: 0.1,
@@ -131,7 +233,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Services section animation
         if (entry.target.classList.contains("services")) {
           const panels = document.querySelectorAll(".service-panel");
           panels.forEach((panel, index) => {
@@ -141,14 +242,13 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
 
-        // Testimonials section animation
         if (entry.target.classList.contains("testimonials")) {
           const title = entry.target.querySelector(".testimonials__title");
           if (title) title.classList.add("animate");
 
           setTimeout(() => {
             const subtitle = entry.target.querySelector(
-              ".testimonials__subtitle"
+              ".testimonials__subtitle",
             );
             if (subtitle) subtitle.classList.add("animate");
           }, 200);
@@ -162,17 +262,21 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           }, 400);
 
-          setTimeout(() => {
-            const cta = entry.target.querySelector(".testimonials__cta");
-            if (cta) cta.classList.add("animate");
-          }, 400 + entry.target.querySelectorAll(".testimonial-card").length * 150 + 300);
+          setTimeout(
+            () => {
+              const cta = entry.target.querySelector(".testimonials__cta");
+              if (cta) cta.classList.add("animate");
+            },
+            400 +
+              entry.target.querySelectorAll(".testimonial-card").length * 150 +
+              300,
+          );
         }
 
         if (entry.target.classList.contains("learnMore")) {
           entry.target.classList.add("animate");
         }
 
-        // Watch section animation
         if (entry.target.classList.contains("watch")) {
           const title = entry.target.querySelector(".watch__title");
           if (title) title.classList.add("animate");
@@ -184,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           setTimeout(() => {
             const videos = entry.target.querySelectorAll(
-              ".watch__videos > div"
+              ".watch__videos > div",
             );
             videos.forEach((video, index) => {
               setTimeout(() => {
@@ -194,10 +298,9 @@ document.addEventListener("DOMContentLoaded", function () {
           }, 400);
         }
 
-        // About section animation
         if (entry.target.classList.contains("about")) {
           const imageContainer = entry.target.querySelector(
-            ".about__image-container"
+            ".about__image-container",
           );
           if (imageContainer) {
             setTimeout(() => {
@@ -214,9 +317,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
           const paragraphs = entry.target.querySelectorAll(".about__paragraph");
           paragraphs.forEach((paragraph, index) => {
-            setTimeout(() => {
-              paragraph.classList.add("animate");
-            }, 600 + index * 200);
+            setTimeout(
+              () => {
+                paragraph.classList.add("animate");
+              },
+              600 + index * 200,
+            );
           });
         }
       }
@@ -225,7 +331,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const elementsToObserve = [".services", ".testimonials", ".watch", ".about"];
 
-  // Add individual learnMore sections
   const learnMoreSections = document.querySelectorAll(".learnMore");
   learnMoreSections.forEach((section) => {
     observer.observe(section);

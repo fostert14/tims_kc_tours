@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -23,6 +23,16 @@
       rel="stylesheet"
     />
     <title>Tim's KC Tours</title>
+    <!-- Calendly embed widget -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      type="text/javascript"
+      async
+    ></script>
   </head>
   <body>
     <div class="page">
@@ -40,11 +50,6 @@
             <li><a class="nav__link" href="#learnMore">Learn More</a></li>
             <li><a class="nav__link" href="#About">About</a></li>
             <li class="nav__item nav__item--dropdown">
-              <a
-                class="nav__link nav__link--dropdown"
-                href="mailto:tim@timskctours.com"
-                >Contact</a
-              >
               <div class="nav__dropdown">
                 <div class="nav__dropdown-content">
                   <a
@@ -101,7 +106,7 @@
                   </ul>
                   <button
                     class="service-panel__button"
-                    onclick="openBookingModal()"
+                    onclick="goToConciergePay()"
                   >
                     Book Now
                   </button>
@@ -122,7 +127,7 @@
                   </ul>
                   <button
                     class="service-panel__button"
-                    onclick="openBookingModal()"
+                    onclick="openUndergroundBooking()"
                   >
                     Book Now
                   </button>
@@ -140,7 +145,7 @@
                   </ul>
                   <button
                     class="service-panel__button"
-                    onclick="openBookingModal()"
+                    onclick="openAirportBooking()"
                   >
                     Book Now
                   </button>
@@ -281,6 +286,27 @@
                 </p>
               </div>
 
+              <div class="testimonial-card">
+                <div class="testimonial-card__header">
+                  <div class="testimonial-card__info">
+                    <div class="testimonial-card__name">Christopher R.</div>
+                    <div class="testimonial-card__location">Missouri</div>
+                  </div>
+                </div>
+                <div class="testimonial-card__stars">
+                  <span class="star">★</span>
+                  <span class="star">★</span>
+                  <span class="star">★</span>
+                  <span class="star">★</span>
+                  <span class="star">★</span>
+                </div>
+                <p class="testimonial-card__quote">
+                  Thank you for accommodating our last-minute request! Prompt
+                  arrival, friendly service, fair pricing. Will be calling on
+                  you again and recommending you to our guests!
+                </p>
+              </div>
+
               <!-- <div class="testimonial-card">
                 <div class="testimonial-card__header">
                   <div class="testimonial-card__avatar">LW</div>
@@ -364,7 +390,10 @@
                   Highly recommend Monday through Friday during normal business
                   hours.
                 </p>
-                <button class="learnMore__button" onclick="openBookingModal()">
+                <button
+                  class="learnMore__button"
+                  onclick="openUndergroundBooking()"
+                >
                   Book Underground Tour
                 </button>
               </div>
@@ -529,7 +558,7 @@
                   <span id="expand-text">Read More</span>
                 </button>
 
-                <button class="learnMore__button" onclick="openBookingModal()">
+                <button class="learnMore__button" onclick="goToConciergePay()">
                   Book Concierge Tour
                 </button>
               </div>
@@ -644,36 +673,7 @@
       </main>
       <footer class="footer" id="About">
         <div class="footer__content">
-          <!-- <img
-            class="footer__logo"
-            src="./images/practicum_logo.svg"
-            alt="Logo"
-          /> -->
-          <div class="footer__content footer__content_social_media">
-            <!-- <h2 class="footer__content-heading">Social Media</h2> -->
-            <!-- <ul class="footer__list">
-              <li class="footer__list-item">
-                <a href="#" class="footer__content-link">
-                  <img
-                    class="footer__social-icon"
-                    src="./images/facebook_white.svg"
-                    alt="facebook logo"
-                  />
-                  Facebook</a
-                >
-              </li>
-              <li class="footer__list-item">
-                <a href="#" class="footer__content-link">
-                  <img
-                    class="footer__social-icon"
-                    src="./images/instagram_white.svg"
-                    alt="instagram logo"
-                  />
-                  Instagram</a
-                >
-              </li>
-            </ul> -->
-          </div>
+          <div class="footer__content footer__content_social_media"></div>
           <div class="footer__content footer__content_contact">
             <p class="footer__business-info">© 2025 Tim's KC Tours</p>
             <p class="footer__business-info">North Kansas City, Missouri</p>
@@ -683,11 +683,10 @@
             <a href="tel:816-585-3567" class="footer__business-info"
               >816-585-3567</a
             >
-            <p class="footer__insurance">Fully Insured</p>
           </div>
         </div>
       </footer>
     </div>
-    <script src="main.js"></script>
+    <script src="./main.js"></script>
   </body>
 </html>

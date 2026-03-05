@@ -1,3 +1,12 @@
+/* Hide Calendly popup overlay scrollbar */
+.calendly-overlay .calendly-popup {
+  overflow: hidden;
+}
+
+.calendly-overlay {
+  overflow: hidden;
+}
+
 /* Booking Modal Styles */
 .modal {
   display: none;
@@ -14,12 +23,14 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 .modal[style*="block"] {
   display: flex !important;
 }
 
+/* Match original modal content styling exactly */
 .modal__content {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   margin: 0;
@@ -31,6 +42,7 @@
   box-shadow: 0 20px 60px rgba(27, 38, 44, 0.4);
   position: relative;
   animation: modalSlideIn 0.3s ease-out;
+  box-sizing: border-box;
 }
 
 @keyframes modalSlideIn {
@@ -78,6 +90,27 @@
   font-family: "Inter", sans-serif;
 }
 
+/* Steps */
+.modal__step {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.modal__step--hidden {
+  display: none;
+}
+
+.modal__step-title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1b262c;
+  text-align: center;
+  margin: 0 0 1.25rem 0;
+}
+
+/* Tour selection buttons - match original exactly */
 .modal__buttons {
   display: flex;
   flex-direction: column;
@@ -94,24 +127,31 @@
   color: #ffffff;
   transition: all 0.3s ease;
   font-family: "Inter", sans-serif;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
 }
 
 .modal__button:hover {
   background: #0f4c75;
-  border-color: #0f4c75;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(39, 168, 255, 0.3);
 }
 
+.modal__button--concierge:hover {
+  background: #1b262c;
+  box-shadow: 0 8px 20px rgba(27, 38, 44, 0.3);
+}
+
 .modal__button--email:hover {
   background: #1b262c;
-  border-color: #1b262c;
   box-shadow: 0 8px 20px rgba(27, 38, 44, 0.3);
 }
 
 .modal__button--phone:hover {
   background: #0f4c75;
-  border-color: #0f4c75;
   box-shadow: 0 8px 20px rgba(15, 76, 117, 0.3);
 }
 
@@ -135,7 +175,194 @@
   font-weight: 400;
 }
 
-/* Responsive design */
+/* Back button */
+.modal__back-btn {
+  background: none;
+  border: none;
+  color: #3282b8;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 1rem;
+  transition: color 0.2s ease;
+}
+
+.modal__back-btn:hover {
+  color: #0f4c75;
+}
+
+/* Group size buttons */
+.modal__group-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.modal__group-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  background: #ffffff;
+  border: 2px solid #dde8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: "Inter", sans-serif;
+  position: relative;
+}
+
+.modal__group-btn:hover {
+  border-color: #3282b8;
+  background: #f0f7ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(50, 130, 184, 0.15);
+}
+
+.modal__group-btn--deal {
+  border-color: #27a8ff;
+  background: #f0f7ff;
+}
+
+.modal__group-btn--deal:hover {
+  border-color: #0f4c75;
+  background: #e0f0ff;
+}
+
+.modal__group-count {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1b262c;
+  line-height: 1;
+}
+
+.modal__group-label {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal__group-price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3282b8;
+  margin-top: 0.5rem;
+}
+
+.modal__group-deal-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #27a8ff;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.modal__group-savings {
+  font-size: 0.7rem;
+  color: #27a8ff;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+/* Stylized redirect note */
+.modal__redirect-note {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 100%);
+  border: 1px solid #bbe1fa;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.modal__redirect-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 0.5rem;
+}
+
+.modal__redirect-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #3282b8;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.modal__redirect-line {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #3282b8, #bbe1fa);
+  margin: 0 0.25rem;
+}
+
+.modal__redirect-note p {
+  font-family: "Inter", sans-serif;
+  font-size: 0.8rem;
+  color: #0f4c75;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Contact alternative */
+.modal__contact-alt {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e0e8ee;
+  text-align: center;
+}
+
+.modal__contact-alt p {
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  color: #999;
+  margin: 0 0 0.5rem 0;
+}
+
+.modal__contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+}
+
+.modal__contact-links a {
+  color: #3282b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.modal__contact-links a:hover {
+  color: #0f4c75;
+}
+
+.modal__contact-links span {
+  color: #ccc;
+}
+
+/* Responsive design - match original breakpoints */
 @media (max-width: 768px) {
   .modal__content {
     padding: 2rem;
@@ -162,6 +389,11 @@
 
   .modal__button-detail {
     font-size: 0.85rem;
+  }
+
+  .modal__group-options {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
   }
 }
 
@@ -205,6 +437,19 @@
   .modal__button-detail {
     font-size: 0.8rem;
   }
+
+  .modal__group-options {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .modal__group-count {
+    font-size: 1.5rem;
+  }
+
+  .modal__group-price {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 360px) {
@@ -217,16 +462,17 @@
     font-size: 1.75rem;
   }
 
-  .modal__button {
-    padding: 0.875rem;
+  .modal__group-options {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
   }
 
-  .modal__button-label {
-    font-size: 0.95rem;
+  .modal__group-btn {
+    padding: 0.75rem 0.25rem;
   }
 
-  .modal__button-detail {
-    font-size: 0.75rem;
+  .modal__group-count {
+    font-size: 1.3rem;
   }
 }
 
