@@ -106,6 +106,10 @@ async function loadModal() {
       .classList.remove("modal__step--hidden");
     // Hide back button when opened directly from service panel
     document.getElementById("underground-back-btn").style.display = "none";
+  } else if (modalInitialView === "concierge") {
+    document
+      .getElementById("modal-concierge")
+      .classList.remove("modal__step--hidden");
   } else if (modalInitialView === "airport") {
     document
       .getElementById("modal-airport")
@@ -180,9 +184,12 @@ function closeModal() {
 // Tour selection from the full selector
 function selectTour(tourType) {
   if (tourType === "concierge") {
-    // Open Calendly directly for concierge
-    closeModal();
-    Calendly.initPopupWidget({ url: CALENDLY_EVENTS.concierge });
+    document
+      .getElementById("modal-tour-select")
+      .classList.add("modal__step--hidden");
+    document
+      .getElementById("modal-concierge")
+      .classList.remove("modal__step--hidden");
   } else if (tourType === "underground") {
     document
       .getElementById("modal-tour-select")
@@ -195,10 +202,13 @@ function selectTour(tourType) {
   }
 }
 
-// Concierge: open Calendly popup for scheduling + payment
+// Direct opener - Concierge "Book Now" → phone/email contact
 function goToConciergePay() {
-  closeModal();
-  Calendly.initPopupWidget({ url: CALENDLY_EVENTS.concierge });
+  modalInitialView = "concierge";
+  loadModal().then(() => {
+    const modal = document.getElementById("bookingModal");
+    if (modal) modal.style.display = "block";
+  });
 }
 
 // Underground: group size selection → open Calendly popup
@@ -214,6 +224,9 @@ function selectGroupSize(size) {
 function goBackToTourSelect() {
   document
     .getElementById("modal-underground")
+    .classList.add("modal__step--hidden");
+  document
+    .getElementById("modal-concierge")
     .classList.add("modal__step--hidden");
   document
     .getElementById("modal-tour-select")

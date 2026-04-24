@@ -19,25 +19,28 @@
             </div>
           </div>
         </button>
-        <button
-          class="modal__button modal__button--concierge"
-          onclick="selectTour('concierge')"
+      </div>
+      <div class="modal__divider">
+        <span class="modal__divider-text"
+          >For all other tours, please call or email</span
+        >
+      </div>
+      <div class="modal__buttons">
+        <a
+          href="mailto:tim@timskctours.com"
+          class="modal__button modal__button--email"
         >
           <div class="modal__button-text">
-            <div class="modal__button-label">Concierge Tour</div>
-            <div class="modal__button-detail">
-              $300 · Up to 5 People · 6 Hours
-            </div>
+            <div class="modal__button-label">Book by Email</div>
+            <div class="modal__button-detail">tim@timskctours.com</div>
           </div>
-        </button>
-      </div>
-      <div class="modal__contact-alt">
-        <p>Prefer to book by phone or email?</p>
-        <div class="modal__contact-links">
-          <a href="tel:816-585-3567">816-585-3567</a>
-          <span>·</span>
-          <a href="mailto:tim@timskctours.com">tim@timskctours.com</a>
-        </div>
+        </a>
+        <a href="tel:816-585-3567" class="modal__button modal__button--phone">
+          <div class="modal__button-text">
+            <div class="modal__button-label">Book by Phone</div>
+            <div class="modal__button-detail">816-585-3567</div>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -99,6 +102,32 @@
           <span>·</span>
           <a href="mailto:tim@timskctours.com">tim@timskctours.com</a>
         </div>
+      </div>
+    </div>
+
+    <!-- Concierge Tour Contact -->
+    <div id="modal-concierge" class="modal__step modal__step--hidden">
+      <button class="modal__back-btn" onclick="goBackToTourSelect()">
+        ← Back
+      </button>
+      <h2 class="modal__title">Concierge Tour</h2>
+      <p class="modal__subtitle">Ready to book your tour?</p>
+      <div class="modal__buttons">
+        <a
+          href="mailto:tim@timskctours.com"
+          class="modal__button modal__button--email"
+        >
+          <div class="modal__button-text">
+            <div class="modal__button-label">Book by Email</div>
+            <div class="modal__button-detail">tim@timskctours.com</div>
+          </div>
+        </a>
+        <a href="tel:816-585-3567" class="modal__button modal__button--phone">
+          <div class="modal__button-text">
+            <div class="modal__button-label">Book by Phone</div>
+            <div class="modal__button-detail">816-585-3567</div>
+          </div>
+        </a>
       </div>
     </div>
 
