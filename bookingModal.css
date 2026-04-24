@@ -362,6 +362,30 @@
   color: #ccc;
 }
 
+/* Divider between tour options */
+.modal__divider {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0 1rem;
+  gap: 1rem;
+}
+
+.modal__divider::before,
+.modal__divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #dde8f0;
+}
+
+.modal__divider-text {
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  color: #888;
+  white-space: nowrap;
+  text-align: center;
+}
+
 /* Responsive design - match original breakpoints */
 @media (max-width: 768px) {
   .modal__content {
@@ -499,29 +523,5 @@
 
   .modal__button {
     padding: 0.875rem;
-  }
-
-  /* Divider between tour options */
-  .modal__divider {
-    display: flex;
-    align-items: center;
-    margin: 1.5rem 0 1rem;
-    gap: 1rem;
-  }
-
-  .modal__divider::before,
-  .modal__divider::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #dde8f0;
-  }
-
-  .modal__divider-text {
-    font-family: "Inter", sans-serif;
-    font-size: 0.85rem;
-    color: #888;
-    white-space: nowrap;
-    text-align: center;
   }
 }
